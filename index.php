@@ -3,7 +3,7 @@
     <title>Таблица</title>
   </head>
   <body>
-    <?php
+	<?php
 		include 'CProducts.php';
 	
 		$products = new CProducts();
