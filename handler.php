@@ -14,7 +14,7 @@
 			break;
 		case 'plus':
 			$products->inc_quantity($request['id']);
-			echo $products->get_quantity($request['id']);
+			$products->get_quantity($request['id']);
 			break;
 	}
 ?>
