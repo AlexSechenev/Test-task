@@ -8,8 +8,13 @@
 			beforeSend: function () { 
 				btn.toggleAttribute('disabled', true);
 			},
-			success: function () {
-				btn.parentElement.parentElement.style.display='none';
+			success: function (response) {
+				if(!isNaN(response)) {
+					btn.parentElement.parentElement.style.display='none';
+				}
+				else {
+					alert(response);
+				}
 			},
 			error: function () {
 				alert("ERROR")
@@ -28,8 +33,13 @@
 				btn.toggleAttribute('disabled', true);
 			},
 			success: function (response) {
-				btn.toggleAttribute('disabled', false);
-				$("#qcell"+btn.parentElement.parentElement.id).html(response);
+				if(!isNaN(response)) {
+					if(response!=0) btn.toggleAttribute('disabled', false);				
+					$("#qcell"+btn.parentElement.parentElement.id).html(response);
+				}
+				else {
+					alert(response);
+				}
 			},
 			error: function () {
 				alert("ERROR")
@@ -50,8 +60,14 @@
 				btn.toggleAttribute('disabled', true);
 			},
 			success: function (response) {
-				btn.toggleAttribute('disabled', false);
-				$("#qcell"+btn.parentElement.parentElement.id).html(response);
+				if(!isNaN(response)) {
+					btn.toggleAttribute('disabled', false);
+					btn.parentElement.firstChild.nextSibling.nextSibling.toggleAttribute('disabled', false);
+					$("#qcell"+btn.parentElement.parentElement.id).html(response);
+				}
+				else {
+					alert(response);
+				}
 			},
 			error: function () {
 				alert("ERROR")
